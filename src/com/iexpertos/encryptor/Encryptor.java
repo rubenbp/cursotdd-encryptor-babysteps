@@ -7,16 +7,7 @@ public class Encryptor {
 	public String cryptWord(String word)
 	{
 		validateWord(word);
-		
-		char[] wordArray = word.toCharArray();
-		String newWord = "";
-		for (int i = 0; i < word.length(); i++)
-		{
-			int charValue = wordArray[i];
-			newWord += String.valueOf((char)( charValue + 2));
-		}
-		
-		return newWord;
+		return cryptSentence(word);
 	}
 	
 	public String cryptWordToNumbers(String word)

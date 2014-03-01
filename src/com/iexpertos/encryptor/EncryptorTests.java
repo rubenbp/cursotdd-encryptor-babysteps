@@ -10,17 +10,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EncryptorTests {
+	
+	Encryptor encryptor;
+	
+	@Before
+	public void setUp() {
+		encryptor = new Encryptor();
+	}
 
 	@Test
 	public void encripta_palabras() {
-		Encryptor encryptor = new Encryptor();
 		String result = encryptor.cryptWord("hello");
 		assertThat(result, is("jgnnq"));
 	}
 	
 	@Test(expected = InvalidParameterException.class)
 	public void no_permite_encriptar_palabras_con_espacios() {
-		Encryptor encryptor = new Encryptor();
 		encryptor.cryptWord("hello world");
 	}
 }

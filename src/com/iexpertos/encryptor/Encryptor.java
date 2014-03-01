@@ -4,16 +4,16 @@ import java.security.InvalidParameterException;
 
 public class Encryptor {
 	
+	public CharEncryptionStratergy charEncryptor;
+	
+	public Encryptor(CharEncryptionStratergy charEncryptor) {
+		this.charEncryptor = charEncryptor;
+	}
+	
 	public String cryptWord(String word)
 	{
 		validateWord(word);
-		return cryptSentence(word, new LetterEncryptor());
-	}
-	
-	public String cryptWordToNumbers(String word)
-	{
-		validateWord(word);
-		return cryptSentence(word, new NumberEncryptor());
+		return cryptSentence(word);
 	}
 
 	public String cryptWord(String word, String charsToReplace)
@@ -30,7 +30,7 @@ public class Encryptor {
 				if (replacement[j] == wordArray[i])
 				{
 					int charValue = wordArray[i];
-					result[i] = (char)( charValue + 2);		
+					result[i] = charEncryptor.crypt(charValue).charAt(0);		
 				}
 			}
 		}
@@ -42,7 +42,7 @@ public class Encryptor {
 			throw new InvalidParameterException();
 	}
 
-	public String cryptSentence(String sentence, CharEncryptionStratergy charEncryptor)
+	public String cryptSentence(String sentence)
 	{
 		char[] sentenceArray = sentence.toCharArray();
 		String newWord = "";

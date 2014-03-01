@@ -3,24 +3,34 @@ package com.iexpertos.encryptor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 import org.junit.Test;
 
 public class PrintingDriverTests {
 
 	@Test
-	public void imprime_palabras_al_stdout() {
-		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outContent));
-	    
-		PrintingDriver printingDriver = new PrintingDriver();
+	public void imprime_palabras_al_stdout() throws Exception {   
+		PrinterMock printerMock = new PrinterMock();
+		PrintingDriver printingDriver = new PrintingDriver(printerMock);
+		
 		printingDriver.sendToPrinter("hello world");
 	    
-	    assertThat(outContent.toString(), is("<hello><world>"));
-	    
-	    System.setOut(null);
+	    printerMock.assertThatPrintWasCalled();
+	}
+	
+	// Manual mock
+	class PrinterMock implements Printer {
+		boolean printCalled = false;
+		
+		@Override
+		public void print(String text) {
+			printCalled = true;
+		}
+		
+		public void assertThatPrintWasCalled() throws Exception {
+			if (!printCalled) {
+				throw new Exception("print wasn't called");
+			}
+		}
 	}
 
 }

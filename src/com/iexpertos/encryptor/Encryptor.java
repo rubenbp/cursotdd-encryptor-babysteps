@@ -56,7 +56,8 @@ public class Encryptor {
 			int charValue = sentenceArray[i];
 			switch(encryptedFormat) {
 				case NUMBERS:
-					newWord += String.valueOf(charValue + 2);
+					NumberEncryptor encryptor = new NumberEncryptor();
+					newWord += encryptor.crypt(charValue);
 					break;
 				case CHARS:
 					newWord += String.valueOf((char)( charValue + 2));

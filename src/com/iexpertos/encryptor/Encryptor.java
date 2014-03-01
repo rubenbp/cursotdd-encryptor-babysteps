@@ -13,16 +13,7 @@ public class Encryptor {
 	public String cryptWordToNumbers(String word)
 	{
 		validateWord(word);
-		
-		char[] wordArray = word.toCharArray();
-		String newWord = "";
-		for (int i = 0; i < word.length(); i++)
-		{
-			int charValue = wordArray[i];
-			newWord += String.valueOf(charValue + 2);
-		}
-		
-		return newWord;
+		return cryptSentence(word, true);
 	}
 
 	public String cryptWord(String word, String charsToReplace)
@@ -53,12 +44,21 @@ public class Encryptor {
 	
 	public String cryptSentence(String sentence)
 	{
+		return cryptSentence(sentence, false);
+	}
+	
+	public String cryptSentence(String sentence, boolean toNumbers)
+	{
 		char[] sentenceArray = sentence.toCharArray();
 		String newWord = "";
 		for (int i = 0; i < sentence.length(); i++)
 		{
 			int charValue = sentenceArray[i];
-			newWord += String.valueOf((char)( charValue + 2));
+			if (toNumbers) {
+				newWord += String.valueOf(charValue + 2);
+			} else {
+				newWord += String.valueOf((char)( charValue + 2));
+			}
 		}
 		
 		return newWord;

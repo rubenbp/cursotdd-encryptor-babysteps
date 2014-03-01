@@ -60,7 +60,8 @@ public class Encryptor {
 					newWord += encryptor.crypt(charValue);
 					break;
 				case CHARS:
-					newWord += String.valueOf((char)( charValue + 2));
+					LetterEncryptor letterEncryptor = new LetterEncryptor();
+					newWord += letterEncryptor.crypt(charValue);
 					break;
 				default:
 					throw new InvalidParameterException();

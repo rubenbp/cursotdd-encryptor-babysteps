@@ -4,6 +4,11 @@ import java.security.InvalidParameterException;
 
 public class Encryptor {
 	
+	public enum EncryptedFormat {
+		CHARS,
+		NUMBERS
+	}
+	
 	public String cryptWord(String word)
 	{
 		validateWord(word);
@@ -13,7 +18,7 @@ public class Encryptor {
 	public String cryptWordToNumbers(String word)
 	{
 		validateWord(word);
-		return cryptSentence(word, true);
+		return cryptSentence(word, EncryptedFormat.NUMBERS);
 	}
 
 	public String cryptWord(String word, String charsToReplace)
@@ -44,20 +49,25 @@ public class Encryptor {
 	
 	public String cryptSentence(String sentence)
 	{
-		return cryptSentence(sentence, false);
+		return cryptSentence(sentence, EncryptedFormat.CHARS);
 	}
 	
-	public String cryptSentence(String sentence, boolean toNumbers)
+	public String cryptSentence(String sentence, EncryptedFormat encryptedFormat)
 	{
 		char[] sentenceArray = sentence.toCharArray();
 		String newWord = "";
 		for (int i = 0; i < sentence.length(); i++)
 		{
 			int charValue = sentenceArray[i];
-			if (toNumbers) {
-				newWord += String.valueOf(charValue + 2);
-			} else {
-				newWord += String.valueOf((char)( charValue + 2));
+			switch(encryptedFormat) {
+				case NUMBERS:
+					newWord += String.valueOf(charValue + 2);
+					break;
+				case CHARS:
+					newWord += String.valueOf((char)( charValue + 2));
+					break;
+				default:
+					throw new InvalidParameterException();
 			}
 		}
 		

@@ -3,6 +3,8 @@ package com.iexpertos.encryptor;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
+import java.security.InvalidParameterException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,5 +16,11 @@ public class EncryptorTests {
 		Encryptor encryptor = new Encryptor();
 		String result = encryptor.cryptWord("hello");
 		assertThat(result, is("jgnnq"));
+	}
+	
+	@Test(expected = InvalidParameterException.class)
+	public void no_permite_encriptar_palabras_con_espacios() {
+		Encryptor encryptor = new Encryptor();
+		encryptor.cryptWord("hello world");
 	}
 }

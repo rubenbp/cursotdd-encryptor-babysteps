@@ -54,7 +54,7 @@ public class EncryptorTests {
 	@Test
 	public void encripta_frases() {
 		String encryptedSentence = 
-				encryptor.cryptSentence("hello world", Encryptor.EncryptedFormat.CHARS);
+				encryptor.cryptSentence("hello world", new LetterEncryptor());
 		assertThat(encryptedSentence, is("jgnnq\"yqtnf"));
 	}
 }

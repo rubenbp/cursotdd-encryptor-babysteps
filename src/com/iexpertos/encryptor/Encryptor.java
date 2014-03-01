@@ -1,13 +1,14 @@
 package com.iexpertos.encryptor;
 
-import java.security.InvalidParameterException;
-
 public class Encryptor {
 	
 	public CharEncryptionStratergy charEncryptor;
+	public WordEncryptionValidation wordValidator;
 	
-	public Encryptor(CharEncryptionStratergy charEncryptor) {
+	public Encryptor(CharEncryptionStratergy charEncryptor,
+					 WordEncryptionValidation wordValidator) {
 		this.charEncryptor = charEncryptor;
+		this.wordValidator = wordValidator;
 	}
 	
 	public String cryptWord(String word)
@@ -38,7 +39,6 @@ public class Encryptor {
 	}
 	
 	private void validateWord(String word) {
-		WordValidator wordValidator = new WordValidator();
 		wordValidator.validate(word);
 	}
 

@@ -1,6 +1,6 @@
 package com.iexpertos.encryptor;
 
-public class NumberEncryptor implements CharEncryptionStratergy {
+public class NumberCharEncryptor implements CharEncryptionStratergy {
 	
 	@Override
 	public String crypt(int charValue) {

@@ -39,4 +39,10 @@ public class EncryptorTests {
 	public void no_permite_encriptar_palabras_a_numeros_con_espacios() {
 		encryptor.cryptWordToNumbers("hello world");
 	}
+	
+	@Test
+	public void encripta_ciertas_letras_de_palabras() {
+		String encryptedWord = encryptor.cryptWord("hello", "ho");
+		assertThat(encryptedWord, is("jellq"));
+	}
 }

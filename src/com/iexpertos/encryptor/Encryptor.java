@@ -67,12 +67,5 @@ public class Encryptor {
 		}
 		
 		return newWord;
-	}
-	
-	public void printWords(String sentence)
-	{
-		PrintingDriver printingDriver = new PrintingDriver();
-		printingDriver.sendToPrinter(sentence);
-	}
-	
+	}	
 }

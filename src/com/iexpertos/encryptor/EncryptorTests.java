@@ -3,8 +3,6 @@ package com.iexpertos.encryptor;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.security.InvalidParameterException;
 
 import org.junit.After;
@@ -58,17 +56,5 @@ public class EncryptorTests {
 		String encryptedSentence = 
 				encryptor.cryptSentence("hello world", Encryptor.EncryptedFormat.CHARS);
 		assertThat(encryptedSentence, is("jgnnq\"yqtnf"));
-	}
-	
-	@Test
-	public void imprime_palabras_al_stdout() {
-		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outContent));
-	    
-	    encryptor.printWords("hello world");
-	    
-	    assertThat(outContent.toString(), is("<hello><world>"));
-	    
-	    System.setOut(null);
 	}
 }

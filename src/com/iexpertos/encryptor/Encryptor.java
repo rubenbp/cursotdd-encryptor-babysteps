@@ -69,11 +69,6 @@ public class Encryptor {
 		return newWord;
 	}
 	
-	public String[] getWords(String sentence)
-	{
-		return sentence.split(" ");
-	}
-	
 	public void printWords(String sentence)
 	{
 		String[] words = sentence.split(" ");

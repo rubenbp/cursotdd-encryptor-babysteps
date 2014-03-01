@@ -61,12 +61,6 @@ public class EncryptorTests {
 	}
 	
 	@Test
-	public void obtiene_las_palabras_de_una_frase() {
-		String[] words = encryptor.getWords("hello world");
-		assertThat(words, arrayContaining("hello", "world"));
-	}
-	
-	@Test
 	public void imprime_palabras_al_stdout() {
 		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));

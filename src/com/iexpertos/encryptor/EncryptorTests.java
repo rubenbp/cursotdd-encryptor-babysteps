@@ -15,7 +15,7 @@ public class EncryptorTests {
 	
 	@Before
 	public void setUp() {
-		encryptor = new Encryptor(new LetterEncryptor(), new WordValidator());
+		encryptor = EncryptorFactory.createLetterEncryptor();
 	}
 
 	@Test
@@ -31,14 +31,14 @@ public class EncryptorTests {
 	
 	@Test
 	public void encripta_palabras_a_numeros() {
-		encryptor = new Encryptor(new NumberEncryptor(), new WordValidator());
+		encryptor = EncryptorFactory.createNumberEncryptor();
 		String encryptedWord = encryptor.cryptWord("hello");
 		assertThat(encryptedWord, is("106103110110113"));
 	}
 	
 	@Test(expected = InvalidParameterException.class)
 	public void no_permite_encriptar_palabras_a_numeros_con_espacios() {
-		encryptor = new Encryptor(new NumberEncryptor(), new WordValidator());
+		encryptor = EncryptorFactory.createNumberEncryptor();
 		encryptor.cryptWord("hello world");
 	}
 	

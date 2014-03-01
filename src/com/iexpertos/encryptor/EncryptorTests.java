@@ -56,4 +56,10 @@ public class EncryptorTests {
 		String encryptedSentence = encryptor.cryptSentence("hello world");
 		assertThat(encryptedSentence, is("jgnnq\"yqtnf"));
 	}
+	
+	@Test
+	public void obtiene_las_palabras_de_una_frase() {
+		String[] words = encryptor.getWords("hello world");
+		assertThat(words, arrayContaining("hello", "world"));
+	}
 }

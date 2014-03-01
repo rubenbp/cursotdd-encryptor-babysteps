@@ -20,12 +20,12 @@ public class EncryptorTests {
 
 	@Test
 	public void encripta_palabras() {
-		String result = encryptor.cryptWord("hello");
-		assertThat(result, is("jgnnq"));
+		String encryptedWord = encryptor.cryptWord("hello");
+		assertThat(encryptedWord, is("jgnnq"));
 	}
 	
 	@Test(expected = InvalidParameterException.class)
 	public void no_permite_encriptar_palabras_con_espacios() {
 		encryptor.cryptWord("hello world");
-	}
+	} 
 }

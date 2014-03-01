@@ -8,7 +8,7 @@ import org.junit.Test;
 public class PrintingDriverTests {
 
 	@Test
-	public void imprime_palabras_al_stdout() throws Exception {   
+	public void imprime_palabras_al_printer() throws Exception {   
 		PrinterMock printerMock = new PrinterMock();
 		PrintingDriver printingDriver = new PrintingDriver(printerMock);
 		

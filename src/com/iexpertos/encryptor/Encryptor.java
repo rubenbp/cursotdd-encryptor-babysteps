@@ -38,8 +38,8 @@ public class Encryptor {
 	}
 	
 	private void validateWord(String word) {
-		if (word.contains(" "))
-			throw new InvalidParameterException();
+		WordValidator wordValidator = new WordValidator();
+		wordValidator.validate(word);
 	}
 
 	public String cryptSentence(String sentence)

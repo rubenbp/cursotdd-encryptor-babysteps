@@ -12,7 +12,7 @@ public class Encryptor {
 	public String cryptWord(String word)
 	{
 		validateWord(word);
-		return cryptSentence(word);
+		return cryptSentence(word, EncryptedFormat.CHARS);
 	}
 	
 	public String cryptWordToNumbers(String word)
@@ -46,12 +46,7 @@ public class Encryptor {
 		if (word.contains(" "))
 			throw new InvalidParameterException();
 	}
-	
-	public String cryptSentence(String sentence)
-	{
-		return cryptSentence(sentence, EncryptedFormat.CHARS);
-	}
-	
+
 	public String cryptSentence(String sentence, EncryptedFormat encryptedFormat)
 	{
 		char[] sentenceArray = sentence.toCharArray();

@@ -34,4 +34,9 @@ public class EncryptorTests {
 		String encryptedWord = encryptor.cryptWordToNumbers("hello");
 		assertThat(encryptedWord, is("106103110110113"));
 	}
+	
+	@Test(expected = InvalidParameterException.class)
+	public void no_permite_encriptar_palabras_a_numeros_con_espacios() {
+		encryptor.cryptWordToNumbers("hello world");
+	}
 }

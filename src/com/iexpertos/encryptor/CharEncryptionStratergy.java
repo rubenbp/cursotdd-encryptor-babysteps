@@ -1,6 +1,6 @@
 package com.iexpertos.encryptor;
 
-public interface CharEncryption {
+public interface CharEncryptionStratergy {
 
 	public abstract String crypt(int charValue);
 

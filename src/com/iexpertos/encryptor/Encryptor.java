@@ -42,14 +42,14 @@ public class Encryptor {
 			throw new InvalidParameterException();
 	}
 
-	public String cryptSentence(String sentence, CharEncryption charEncryption)
+	public String cryptSentence(String sentence, CharEncryptionStratergy charEncryptor)
 	{
 		char[] sentenceArray = sentence.toCharArray();
 		String newWord = "";
 		for (int i = 0; i < sentence.length(); i++)
 		{
 			int charValue = sentenceArray[i];
-			newWord += charEncryption.crypt(charValue);
+			newWord += charEncryptor.crypt(charValue);
 		}
 		
 		return newWord;

@@ -76,7 +76,7 @@ public class Encryptor {
 	
 	public void printWords(String sentence)
 	{
-		String[] words = getWords(sentence);
+		String[] words = sentence.split(" ");
 		for (String word : words)
 		{
 			System.out.print("<" + word + ">");

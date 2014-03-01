@@ -28,4 +28,10 @@ public class EncryptorTests {
 	public void no_permite_encriptar_palabras_con_espacios() {
 		encryptor.cryptWord("hello world");
 	} 
+	
+	@Test
+	public void encripta_palabras_a_numeros() {
+		String encryptedWord = encryptor.cryptWordToNumbers("hello");
+		assertThat(encryptedWord, is("106103110110113"));
+	}
 }

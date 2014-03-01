@@ -50,4 +50,10 @@ public class EncryptorTests {
 	public void no_permite_encriptar_ciertas_letras_de_palabras_con_espacios() {
 		encryptor.cryptWord("hello world", "ho");
 	}
+	
+	@Test
+	public void encripta_frases() {
+		String encryptedSentence = encryptor.cryptSentence("hello world");
+		assertThat(encryptedSentence, is("jgnnq\"yqtnf"));
+	}
 }

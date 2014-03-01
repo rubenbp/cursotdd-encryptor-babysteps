@@ -45,4 +45,9 @@ public class EncryptorTests {
 		String encryptedWord = encryptor.cryptWord("hello", "ho");
 		assertThat(encryptedWord, is("jellq"));
 	}
+	
+	@Test(expected = InvalidParameterException.class)
+	public void no_permite_encriptar_ciertas_letras_de_palabras_con_espacios() {
+		encryptor.cryptWord("hello world", "ho");
+	}
 }

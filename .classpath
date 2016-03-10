@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/rubenbp/dev/curso_pma/encryptor_babysteps_java/libs/junit-4.11.jar"/>
-	<classpathentry kind="lib" path="/Users/rubenbp/dev/curso_pma/encryptor_babysteps_java/libs/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="/Users/rubenbp/dev/curso_pma/material/encryptor_babysteps_java/libs/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="/Users/rubenbp/dev/curso_pma/material/encryptor_babysteps_java/libs/junit-4.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
